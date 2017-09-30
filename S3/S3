@@ -13,13 +13,85 @@ S3
         General purpose
         Infrequent access
         Archive
-Object vs File Storage
-    Server independent , accessed using HTTP verbs
-    No file / folder hierarchy
-    No partial data access
-    No worry about
-        Storage space , capacity planning
-    Highly durable / scalable
-        Auto replicated (durable)
-        Buckets are auto partitioned if traffic is High
-    
+    Object vs File Storage
+        Server independent , accessed using HTTP verbs
+        No file / folder hierarchy
+        No partial data access
+        No worry about
+            Storage space , capacity planning
+        Highly durable / scalable
+            Auto replicated (durable)
+            Buckets are auto partitioned if traffic is High
+S3 Basics
+    Buckets
+        Container
+        Name must be unique globally
+        63 chars
+        100 buckets / account
+    Regions
+        Bucket created in region
+        Control your data's location 
+            Close to users
+            Far from primary (disster recovery)
+    Objects
+        Can store any data; size uto 5tb
+        Object has data + medata
+            AWS doesnt care abt data (opaque)
+            medata
+                system
+                    Modified timestamp, Hash
+                user
+                    tags. only at create time
+                custom medata 
+                    added after created
+    Keys
+        Upto 1024 bytes UTF-8
+    Object URL
+        <bucketname>.s3.amazonaws.com/keyname
+
+    Durability and Availability
+        Durability - will i be able to access data in future. 11 9's
+        Availability - can i access my data now 99.99%
+    Consistency
+        Data is replicated in aws, so eventually consistant
+        for new object put. read-after-write Consistency provided
+        all operations to SINGLE key are atomic. So you will never get partially updated data
+
+    Access Control
+        IAM policy, Bucket Policy, ACLs
+        ACLs 
+            Legacy, used before IAM. >20kb
+            on the object level access.
+        Bucket
+            Bucket level upto 20kb
+            like IAM but it has EXPLICIT reference to principle 
+    Static website hosting
+S3 advance features
+    Delimiters
+        just for organize, manage
+        IAM , bucket policy understands this
+            Restrict or share data of subdirectories
+        AWS console, CLI understands this
+    Storage classes
+        Standard
+            general purpose
+            long/short term of FREQUENTLY accessed data
+        Infrequent access (lower availability)
+            Data which is Infrequently accessed
+            Minimum 30days duration , 128kb min size
+            lower const
+            Same durability, latency, high throughput (so somewhat lower availability)
+        RRS (lower durability)
+            Data that can be derived
+            Lower durability
+        Glacier  (least availability , higher availability)
+            no real time access
+            response time ? 5 hours acceptable
+            once restore command issued; data is moved to RRS 
+            Free if 5% accessed
+    Object lifecylce managemet
+    Encryption
+    Versioning
+    MFA delete
+    Presigned URLs
+    Multipart upload
