@@ -62,11 +62,23 @@
 * AWS has pool of IP address (in a region)
 * Elastic IP is static public IP address that can be assigend to EC2/ gateway etc
 * Elastic - IP remains same while you can change underlying infrastructure
+* Maximum 5 IP. Better have it assigned to NAT gateway.
 ### Important points to remember for exam
 * Allocate EIP before assign
 * Cant assign to different region
 * One-to-one relationship between EIP <--> Network interface
-    * So EC2 can have multiple interfaces, so it can multiple EIP's
+    * So EC2 can have multiple interfaces, so it can multiple EIP's ??
+    * No - because ENIs can have only one public  IP address
 * can assign within VPC or different VPC of same region
 * keeps tagged to your account even if instance stopped/ terminated
 * gets chanrged unless explicitly released  
+## Elastic network interface
+* Attach or detach ENI to instance
+* At create, must associate with subnet (and hence security group is associated with ENIs)
+* One ENI --> 1 public IP, multiple private IP
+* ENI persists even after instance is stopped or terminated
+### uses
+* Dual home instace (web server , db traffic)
+* Management network (web server, ssh access)
+* Network and security appliance (web server, firewall or load balencer)
+* Low budget high availability (hot attach to ENI other instance)
