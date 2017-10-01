@@ -116,5 +116,7 @@
 |2  |Allow only     | Allow + deny  |
 |3  |All rules evaluted for specific rule | Evalution is numbered |
 |4  | Stateful      | Stateless     |
+## NAT instance
+## VPN gateway
 
    
