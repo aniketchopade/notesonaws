@@ -57,7 +57,7 @@
     * set network ACL and securiy group to allow certain traffic
 * EC2 Outgoing traffic enable 
     * assign public or elastic ip to your instance
-## DHCP option set
+## DHCP option set (pending)
 ## Elastic IP addresses
 * AWS has pool of IP address (in a region)
 * Elastic IP is static public IP address that can be assigend to EC2/ gateway etc
@@ -82,3 +82,39 @@
 * Management network (web server, ssh access)
 * Network and security appliance (web server, firewall or load balencer)
 * Low budget high availability (hot attach to ENI other instance)
+## Endpoints
+* Create connection between AWS VPC and AWS services which are on internet (S3, DynamoDB) 
+    * No need to configure IGW, Direct connect etc.
+* Multiple endpoints to same service
+    * configure different route in this way to have different access policies
+## VPC Peering
+* Allow instances in two different VPCs to communicate
+* It does not introduce any single point of failure (like NAT instance )
+### Important points to remember
+* 2 VPCs must be in same region
+* Cant have overlapping CIDRs
+* Cant allow trasitive Peering
+* Only One peering connection allowed between two VPCs
+## Security group
+* Virtual firewall. Assciated with ENI's.
+### Points to remember
+* 500 security groups in VPCs
+* 50 inbound and 50 outbound rules in one security group. Attach multiple SGs if 101 rules are required.
+* You can only add allow rules. No deny rules. Use ACLs for deny.
+* By default allow all outbound traffic. YOu can restrict it
+* By default disallow all inbound traffic. You have to use accept rules. 
+* Stateful - responses of outbound traffic are allowed if inbound rule is allowed.
+* Can change security group on the fly. Changes are effective immediately.
+## ACL
+* Additional level of defense at subnet level
+* Numbered rules , processed from low to high by AWS
+* Default ACL - allow all traffic , Custom ACL - initially denies all traffic
+### Difference
+|   | SG            | ACL           |
+|---|---------------|---------------|
+|1  |ENI level      | Subnet level  |
+|2  |Allow only     | Allow + deny  |
+|3  |All rules evaluted for specific rule | Evalution is numbered |
+|4  | Stateful      | Stateless     |
+
+   
