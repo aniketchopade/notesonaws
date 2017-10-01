@@ -20,4 +20,9 @@
     11. Peering
     12. VGW
 ## Subnet
+* Segment/Subset of VPC's IP address range
+* CIDR block is used to select particular Subset
+* Minimum /28 
+* Five IP are reserved 
+    * First - network , Second - Router , Third - ?? , Fourth -Reserved , Last- Broadcast
 
