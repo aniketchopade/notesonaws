@@ -1,5 +1,5 @@
 # AWS EC2 Instances
-##Instance types
+## Instance types
 ### General Purpose - Balences all resouces - Compute, Memomry and Network
 * T2
     * Burstable
