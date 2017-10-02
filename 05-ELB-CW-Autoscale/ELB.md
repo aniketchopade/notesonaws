@@ -1,16 +1,16 @@
-# ELB - Elastic load balencing
+# ELB - Elastic load balancing
 ## ELB
 * distribute traffic across servers
 * Supprots HTTP/S, SSL and TCP distribution 
 * Provides signle CNAME for DNS 
 ### Benifits
-* Managed load balencing scales-in and scales-out
+* Managed load balancing scales-in and scales-out
 * Does health check. Distributed to only healhty instances. Achives High availability.
 * Integrates with Auto scale to scale-in and out instances 
     * Since EC2 counts are dynamically changing, ELB provides single point of entry for consumers.
 * Not only public facing. Internal facing manages DB or app layer.
 * SSL termination and Certificate management (check how this works!)
-## Types of load balencers
+## Types of load balancers
 ### Internet facing
 * Receives traffic from client across internet. 
 * Have public DNS name
@@ -19,8 +19,8 @@
 ### Internal
 * Receives traffic from ELB / EC2 of public subnet
 * DB or App tier of app
-* EC2 instances behind these balencers are in private subnet
-### HTTPS load balencers
+* EC2 instances behind these balancers are in private subnet
+### HTTPS load balancers
 * Enables traffic encryption b/w ELB & Clients 
 * Enables traffic encryption b/w ELB & Backend hosts
 * Install SSL cert in ELB, terminates SSL traffic at ELB
@@ -45,9 +45,9 @@
 * Customizable
 * HTTP/ HTTPS listeners
     * Recommendation is to use keep-alive settings in webserver or kernel level of back-end
-#### Cross zone load balencing
-* ELB by default load balences across AZ's evenly. So keep equal EC2s in each AZs
-* If you can't do that then enable Cross zone load balencing which will balence traffic across all EC2
+#### Cross zone load balancing
+* ELB by default load balances across AZ's evenly. So keep equal EC2s in each AZs
+* If you can't do that then enable Cross zone load balancing which will balance traffic across all EC2
 #### Proxy protocol
 * Enable proxy protocol so that EC2 backend knows who is originating client
 #### Sticky sessions
