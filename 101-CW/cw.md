@@ -15,22 +15,22 @@
 * EC2 termination - you have two weeks to collet before they get purged
 ## Staus checks
 * System status failed
-* This is failure of host OS
-* Reasons
-    * Power failure at host
-    * Network connectivity lost/fail
-    * Software level issues at Host OS
-    * Hardware level issues at Host OS
-* Remedy
-    * Restart instance: so new healthy physical host will be chosen
+    * This is failure of host OS
+    * Reasons
+        * Power failure at host
+        * Network connectivity lost/fail
+        * Software level issues at Host OS
+        * Hardware level issues at Host OS
+    * Remedy
+        * Restart instance: so new healthy physical host will be chosen
 * Instance status failed
-* This is failure of guest OS
-* Reasons
-    * System check failure
-    * Misconfiguration of Startup scripts or Network
-    * Memory exhaust
-    * File system corruption
-    * Kernel incompatible ( with Host)
-* Remedy
-    * Restart instance
-    * Make OS level changes
+    * This is failure of guest OS
+    * Reasons
+        * System check failure
+        * Misconfiguration of Startup scripts or Network
+        * Memory exhaust
+        * File system corruption
+        * Kernel incompatible ( with Host)
+    * Remedy
+        * Restart instance
+        * Make OS level changes
